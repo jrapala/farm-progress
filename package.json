@@ -1,0 +1,8 @@
+{
+  "name": "farm-progress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:jrapala/farm-progress.git",
+  "author": "Juliette Rapala <jrapala@gmail.com>",
+  "license": "MIT"
+}
