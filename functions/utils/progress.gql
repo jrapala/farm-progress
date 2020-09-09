@@ -1,0 +1,8 @@
+type Progress {
+	totalSaved: Float!
+	goal: Float!
+}
+
+type Query {
+	progress: Progress!
+}
