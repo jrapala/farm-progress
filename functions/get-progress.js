@@ -6,6 +6,7 @@ const GET_PROGRESS = `
 			_id
 			totalSaved
 			goal
+			timestamp
 		}
 	}
 `

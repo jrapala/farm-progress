@@ -1,6 +1,7 @@
 type Progress {
 	totalSaved: Float!
 	goal: Float!
+	timestamp: String!
 }
 
 type Query {
