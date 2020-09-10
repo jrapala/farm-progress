@@ -5,8 +5,20 @@
 	"repository": "git@github.com:jrapala/farm-progress.git",
 	"author": "Juliette Rapala <jrapala@gmail.com>",
 	"license": "MIT",
+	"scripts": {
+		"develop": "gatsby develop",
+		"build": "gatsby build"
+	},
 	"dependencies": {
 		"axios": "^0.20.0",
-		"dotenv": "^8.2.0"
+		"dotenv": "^8.2.0",
+		"gatsby": "^2.24.56",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
+	},
+	"devDependencies": {
+		"@types/react": "^16.9.49",
+		"@types/react-dom": "^16.9.8",
+		"typescript-plugin-css-modules": "^2.4.0"
 	}
 }
