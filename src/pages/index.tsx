@@ -3,9 +3,14 @@ import axios from "axios"
 
 import styles from "./index.module.css"
 
+function numberWithCommas(x: number) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
 export default () => {
 	const [status, setStatus] = useState("loading")
 	const [percentSaved, setPercentSaved] = useState<string>("0")
+	const [totalSaved, setTotalSaved] = useState<string>("0")
 	const [timestamp, setTimestamp] = useState<string | null>(null)
 
 	const calculatePercentage = (partialValue: number, totalValue: number) => {
@@ -21,7 +26,7 @@ export default () => {
 			if (canceled === true) return
 
 			if (result.status !== 200) {
-				console.error("Error loading todos!")
+				console.error("Error loading progress!")
 				console.error(result)
 				return
 			}
@@ -32,6 +37,8 @@ export default () => {
 					result.data.progress.goal
 				)
 			)
+
+			setTotalSaved(numberWithCommas(result.data.progress.totalSaved))
 
 			setTimestamp(
 				new Date(
@@ -71,9 +78,10 @@ export default () => {
 						)}
 					</span>
 				</div>
+				{/* <p>Total Saved: ${totalSaved}</p> */}
 				<p>Percent Saved: {percentSaved}%</p>
 			</div>
-			<div>
+			<div className={styles.last}>
 				{timestamp && (
 					<p className={styles.date}>Last Updated: {timestamp}</p>
 				)}

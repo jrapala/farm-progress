@@ -1,20 +1,17 @@
 const sendQuery = require("./utils/send-query")
 
 const UPDATE_PROGRESS = `
-	mutation($id: ID!, $totalSaved: Float!, $goal: Float!) {
-		updateProgress(id: $id, data: { totalSaved: $totalSaved, goal: $goal }) {
-			_id
+	mutation($timestamp: String!, $totalSaved: Float!, $goal: Float!) {
+		updateProgress(id: 276208369898881536, data: { timestamp: $timestamp, totalSaved: $totalSaved, goal: $goal }) {
 			totalSaved
-			goal
-			timestamp
 		}
 	}  
 `
 
 exports.handler = async event => {
-	const { id, totalSaved, goal } = JSON.parse(event.body)
+	const { timestamp, totalSaved, goal } = JSON.parse(event.body)
 	const { data, errors } = await sendQuery(UPDATE_PROGRESS, {
-		id,
+		timestamp,
 		totalSaved,
 		goal,
 	})

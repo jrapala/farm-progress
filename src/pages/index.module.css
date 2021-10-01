@@ -1,8 +1,12 @@
 html,
 body {
-	background-color: #050a9e;
+	--primary: #050a9e;
+	--white: #fff;
+	--box-shadow: rgba(255, 255, 255, 0.3);
+	--border: #ccc;
+	background-color: var(--primary);
 	background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237074d0' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-	color: #fff;
+	color: var(--white);
 	font-family: sans-serif;
 	font-size: 18px;
 	margin: 0;
@@ -17,7 +21,7 @@ main {
 	height: 75vh;
 }
 
-div:last-of-type {
+.last {
 	margin-top: auto;
 }
 
@@ -26,10 +30,10 @@ div:last-of-type {
 	width: 80vw;
 	height: 20px;
 	position: relative;
-	background: #ccc;
+	background: var(--border);
 	border-radius: 14px;
 	border-top: 1px solid #999;
-	box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+	box-shadow: inset 0 -1px 1px var(--box-shadow);
 }
 
 .bar > span {
@@ -42,7 +46,7 @@ div:last-of-type {
 		rgb(43, 194, 83) 37%,
 		rgb(84, 240, 84) 69%
 	);
-	box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+	box-shadow: inset 0 2px 9px var(--box-shadow),
 		inset 0 -2px 6px rgba(0, 0, 0, 0.4);
 	position: relative;
 	overflow: hidden;
@@ -101,4 +105,64 @@ div:last-of-type {
 .date {
 	font-size: 0.75rem;
 	color: #bbb;
+}
+
+.outline {
+	outline-color: rgb(153, 218, 248);
+	outline-offset: 10px;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+.form > fieldset {
+	border: none;
+}
+
+.form > fieldset > label {
+	margin-right: 1rem;
+}
+
+.button-wrapper {
+	width: 100%;
+	margin-top: 2rem;
+}
+
+.button {
+	background-color: var(--white);
+	border: none;
+	border-radius: 10px;
+	color: var(--primary);
+	cursor: pointer;
+	padding: 10px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+}
+
+.button[disabled] {
+	opacity: 70%;
+}
+
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
 }
